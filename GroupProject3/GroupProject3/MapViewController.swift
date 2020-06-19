@@ -14,15 +14,22 @@ class MapViewController: UIViewController {
     
     let locationManager = CLLocationManager()
     @IBOutlet var mapView: MKMapView!
+    var list = [Object]()
+    var lat: Double?
+    var lon: Double?
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         checkLocationServiceEnabled()
-        //addAnnotation(api: list)
+        getAPI()
+        print(lat)
+        print(lon)
+        
+        
     }
-    private func addAnnotation(api: List? = nil) {
+    private func addAnnotation(api: [Object]? = nil) {
         guard let locations = api else {return}
-        for loc in locations.objects{
+        for loc in locations{
             let lat = Double(loc.latitude)!
             let lng = Double(loc.longtitude)!
             let annotation = MKPointAnnotation()
@@ -31,6 +38,22 @@ class MapViewController: UIViewController {
             self.mapView.addAnnotation(annotation)
         }
     }
+    
+    
+    
+    func getAPI(){
+      APIServices.decode(){ (res) in
+          let list = res.objects
+          for object in list {
+            self.list.append(object)
+              
+          }
+        DispatchQueue.main.async {
+            self.addAnnotation(api: self.list)
+        }
+        }
+    }
+        
     private func checkLocationServiceEnabled() {
         if CLLocationManager.locationServicesEnabled() {
             setupLocationManager()

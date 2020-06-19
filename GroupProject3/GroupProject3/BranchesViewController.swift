@@ -12,18 +12,32 @@ class BranchesViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     var atmList = [Object]()
+    var lat: Double!
+    var lon: Double!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.delegate = self
         tableView.dataSource = self
-        // Do any additional setup after loading the view.
+        
         getAPI()
+        
+       
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let id = segue.identifier, id == "map_2"{
+            if let mapVC = segue.destination as? MapViewController {
+                mapVC.lat = self.lat
+                mapVC.lon = self.lon
+            }
+        }
     }
     
+   
+    
     func getAPI(){
-        APIServices.decode(file: "https://run.mocky.io/v3/96016c7a-9b7a-4b7a-997e-3ebc860516a5"){ (res) in
+        APIServices.decode(){ (res) in
             let list = res.objects
             for object in list {
                 if object.objectTypeID == "2"{
@@ -37,6 +51,7 @@ class BranchesViewController: UIViewController {
             //print(self.atmList)
       }
     }
+   
     
 
 
@@ -56,5 +71,13 @@ extension BranchesViewController: UITableViewDataSource, UITableViewDelegate {
         return cell
     }
     
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.lat = Double(atmList[indexPath.row].latitude)
+        self.lon = Double(atmList[indexPath.row].longtitude)
+        
+        performSegue(withIdentifier: "map_2", sender: self)
+        
+    }
+ 
 }
+

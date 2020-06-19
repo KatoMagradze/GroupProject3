@@ -15,9 +15,9 @@
         <!--Map View Controller-->
         <scene sceneID="QzA-9I-YZM">
             <objects>
-                <viewController id="4Kg-Pp-PTR" customClass="MapViewController" customModule="GroupProject3" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MapViewController" id="4Kg-Pp-PTR" customClass="MapViewController" customModule="GroupProject3" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Pgq-LH-Lm1">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lKo-rM-7hu">
@@ -29,17 +29,28 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HX8-hn-ojd">
+                                        <rect key="frame" x="331" y="70" width="68" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="Jh4-cp-Zor"/>
+                                        </constraints>
+                                        <state key="normal" title="Language">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.24313725489999999" green="0.65098039220000004" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="nbX-Sh-ThL" secondAttribute="trailing" constant="140" id="FSK-yN-P5C"/>
                                     <constraint firstItem="nbX-Sh-ThL" firstAttribute="top" secondItem="lKo-rM-7hu" secondAttribute="top" constant="70" id="LK1-5J-edq"/>
+                                    <constraint firstItem="HX8-hn-ojd" firstAttribute="top" secondItem="nbX-Sh-ThL" secondAttribute="top" id="qDd-tz-xp8"/>
+                                    <constraint firstAttribute="trailing" secondItem="HX8-hn-ojd" secondAttribute="trailing" constant="15" id="sG2-uC-TWB"/>
                                     <constraint firstItem="nbX-Sh-ThL" firstAttribute="leading" secondItem="lKo-rM-7hu" secondAttribute="leading" constant="140" id="tNk-3F-jJU"/>
                                     <constraint firstAttribute="height" constant="120" id="zW7-m7-pks"/>
                                 </constraints>
                             </view>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="z20-8A-2lq">
-                                <rect key="frame" x="0.0" y="120" width="414" height="693"/>
+                                <rect key="frame" x="0.0" y="120" width="414" height="688"/>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -55,13 +66,14 @@
                         <viewLayoutGuide key="safeArea" id="sYi-tg-USy"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="map_icon" id="ywd-aX-Vj3"/>
+                    <navigationItem key="navigationItem" id="W9a-zP-nAZ"/>
                     <connections>
                         <outlet property="mapView" destination="z20-8A-2lq" id="Hll-FT-vUD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hky-dv-kaN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="657.97101449275362" y="191.51785714285714"/>
+            <point key="canvasLocation" x="657" y="297"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="lZL-6P-aoI">
@@ -172,6 +184,7 @@
                     <connections>
                         <outlet property="languageButton" destination="Lb4-WR-SXV" id="3LI-gl-lee"/>
                         <outlet property="tableView" destination="Ndp-ny-6pI" id="cLE-qs-8u5"/>
+                        <segue destination="4Kg-Pp-PTR" kind="show" identifier="map_1" id="Pvv-VP-igZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DYQ-0X-qKx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -181,7 +194,7 @@
         <!--Branches View Controller-->
         <scene sceneID="h1N-YI-glK">
             <objects>
-                <viewController id="5mj-OK-goA" customClass="BranchesViewController" customModule="GroupProject3" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BranchesViewController" id="5mj-OK-goA" customClass="BranchesViewController" customModule="GroupProject3" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Tch-nZ-cgH">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -272,16 +285,17 @@
                     <tabBarItem key="tabBarItem" title="" image="branch_icon" id="9EO-te-xR4"/>
                     <connections>
                         <outlet property="tableView" destination="gG1-KV-hhN" id="4fV-fE-Get"/>
+                        <segue destination="4Kg-Pp-PTR" kind="show" identifier="map_2" id="vAL-Pa-nls"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RSY-SZ-aHQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1444.9275362318842" y="-188.16964285714286"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Tab Bar View Controller-->
         <scene sceneID="zLi-mJ-31a">
             <objects>
-                <tabBarController id="U22-hC-Bff" sceneMemberID="viewController">
+                <tabBarController id="U22-hC-Bff" customClass="TabBarViewController" customModule="GroupProject3" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="9Ei-s2-xpc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -305,4 +319,7 @@
         <image name="map_icon" width="23" height="23"/>
         <image name="secondpage_icon" width="24" height="24"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="vAL-Pa-nls"/>
+    </inferredMetricsTieBreakers>
 </document>

@@ -10,8 +10,8 @@ import Foundation
 import UIKit
 
 class APIServices {
-    static func decode(file: String,completion: @escaping (List)->()){
-        guard let url = URL(string: file) else {return}
+    static func decode(completion: @escaping (List)->()){
+        guard let url = URL(string: "https://run.mocky.io/v3/96016c7a-9b7a-4b7a-997e-3ebc860516a5") else {return}
         URLSession.shared.dataTask(with: url){(data,res,err)in
             guard let data = data else {return}
             do{
