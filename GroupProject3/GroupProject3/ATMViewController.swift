@@ -12,6 +12,11 @@ class ATMViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var languageButton: UIButton!
+    var selectedLanguage = 0
+    var name: String?
+    var adress: String?
+    var lat: Double?
+    var lon: Double?
     
     
     var atms = [Object]()
@@ -21,9 +26,21 @@ class ATMViewController: UIViewController {
         
         tableView.delegate = self
         tableView.dataSource = self
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+       // print(atms)
         
         self.getAPI()
         // Do any additional setup after loading the view.
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let id = segue.identifier, id == "map_1"{
+            if let mapVC = segue.destination as? MapViewController {
+                mapVC.lat = self.lat
+                mapVC.lon = self.lon
+            }
+        }
     }
     
     @IBAction func LanguageTapped(_ sender: UIButton) {
@@ -34,9 +51,13 @@ class ATMViewController: UIViewController {
        let actionSheet = UIAlertController(title: "Change Language", message: "choose language", preferredStyle: .actionSheet)
        let GeAction = UIAlertAction(title: "georgian", style: .default) { UIAlertAction in
              print("ge")
+        self.selectedLanguage = 1
+        self.tableView.reloadData()
            }
        let EnAction = UIAlertAction(title: "English", style: .default) { UIAlertAction in
          print("en")
+        self.selectedLanguage = 0
+        self.tableView.reloadData()
        }
        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
        actionSheet.addAction(GeAction)
@@ -46,7 +67,10 @@ class ATMViewController: UIViewController {
      }
 
     func getAPI(){
-        APIServices.decode(file: "https://run.mocky.io/v3/96016c7a-9b7a-4b7a-997e-3ebc860516a5"){ (res) in
+
+
+        APIServices.decode(){ (res) in
+
             
             let list = res.objects
             for object in list {
@@ -58,7 +82,9 @@ class ATMViewController: UIViewController {
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
-            print(self.atms)
+
+            //print(self.atms)
+
         }
     }
     
@@ -70,11 +96,27 @@ extension ATMViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "atm_cell", for: indexPath) as! ATMCell
+        if selectedLanguage == 0{
+            name = atms[indexPath.row].nameEn
+            adress = atms[indexPath.row].addressEn
+        }else if selectedLanguage == 1{
+            name = atms[indexPath.row].nameGe
+            adress = atms[indexPath.row].addressGe
+        }
+        cell.atmNameLabel.text = name
+        cell.atmAddress.text = adress
         
         cell.atmNameLabel.text = atms[indexPath.row].nameGe
         cell.atmAddress.text = atms[indexPath.row].addressGe
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.lat = Double(atms[indexPath.row].latitude)!
+        self.lon = Double(atms[indexPath.row].longtitude)!
+        
+        performSegue(withIdentifier: "map_1", sender: self)
     }
     
     

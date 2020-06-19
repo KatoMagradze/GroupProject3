@@ -21,6 +21,7 @@
 		4180C21A249C9D0B000E19CF /* ATMCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4180C219249C9D0B000E19CF /* ATMCell.swift */; };
 		4180C21C249C9DB7000E19CF /* APIServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4180C21B249C9DB7000E19CF /* APIServices.swift */; };
 		C72DE5B5249D0757007D30BC /* BranchesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72DE5B4249D0757007D30BC /* BranchesCell.swift */; };
+		C72DE5B7249D1AC5007D30BC /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72DE5B6249D1AC5007D30BC /* TabBarViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		4180C219249C9D0B000E19CF /* ATMCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ATMCell.swift; sourceTree = "<group>"; };
 		4180C21B249C9DB7000E19CF /* APIServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServices.swift; sourceTree = "<group>"; };
 		C72DE5B4249D0757007D30BC /* BranchesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BranchesCell.swift; sourceTree = "<group>"; };
+		C72DE5B6249D1AC5007D30BC /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 				4180C1FC249C9188000E19CF /* SceneDelegate.swift */,
 				4180C1FE249C9188000E19CF /* ViewController.swift */,
 				4180C200249C9188000E19CF /* Main.storyboard */,
+				C72DE5B6249D1AC5007D30BC /* TabBarViewController.swift */,
 				C72DE5B4249D0757007D30BC /* BranchesCell.swift */,
 				4180C203249C9189000E19CF /* Assets.xcassets */,
 				4180C205249C9189000E19CF /* LaunchScreen.storyboard */,
@@ -180,6 +183,7 @@
 				4180C21A249C9D0B000E19CF /* ATMCell.swift in Sources */,
 				4180C1FD249C9188000E19CF /* SceneDelegate.swift in Sources */,
 				C72DE5B5249D0757007D30BC /* BranchesCell.swift in Sources */,
+				C72DE5B7249D1AC5007D30BC /* TabBarViewController.swift in Sources */,
 				4180C214249C9B92000E19CF /* ATMViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
