@@ -20,6 +20,7 @@
 		4180C218249C9C31000E19CF /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4180C217249C9C31000E19CF /* MapViewController.swift */; };
 		4180C21A249C9D0B000E19CF /* ATMCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4180C219249C9D0B000E19CF /* ATMCell.swift */; };
 		4180C21C249C9DB7000E19CF /* APIServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4180C21B249C9DB7000E19CF /* APIServices.swift */; };
+		C72DE5B1249CF3E3007D30BC /* BranchesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72DE5B0249CF3E3007D30BC /* BranchesCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		4180C217249C9C31000E19CF /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		4180C219249C9D0B000E19CF /* ATMCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ATMCell.swift; sourceTree = "<group>"; };
 		4180C21B249C9DB7000E19CF /* APIServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServices.swift; sourceTree = "<group>"; };
+		C72DE5B0249CF3E3007D30BC /* BranchesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BranchesCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +84,7 @@
 				4180C215249C9C1E000E19CF /* BranchesViewController.swift */,
 				4180C217249C9C31000E19CF /* MapViewController.swift */,
 				4180C219249C9D0B000E19CF /* ATMCell.swift */,
+				C72DE5B0249CF3E3007D30BC /* BranchesCell.swift */,
 				4180C21B249C9DB7000E19CF /* APIServices.swift */,
 			);
 			path = GroupProject3;
@@ -176,6 +179,7 @@
 				4180C1FB249C9188000E19CF /* AppDelegate.swift in Sources */,
 				4180C21A249C9D0B000E19CF /* ATMCell.swift in Sources */,
 				4180C1FD249C9188000E19CF /* SceneDelegate.swift in Sources */,
+				C72DE5B1249CF3E3007D30BC /* BranchesCell.swift in Sources */,
 				4180C214249C9B92000E19CF /* ATMViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -322,6 +326,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = GroupProject3/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -339,6 +344,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = GroupProject3/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
