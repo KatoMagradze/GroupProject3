@@ -11,6 +11,7 @@ import UIKit
 class BranchesViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
+    var atmList = [Object]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,6 +19,23 @@ class BranchesViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         // Do any additional setup after loading the view.
+        getAPI()
+    }
+    
+    func getAPI(){
+        APIServices.decode(file: "https://run.mocky.io/v3/96016c7a-9b7a-4b7a-997e-3ebc860516a5"){ (res) in
+            let list = res.objects
+            for object in list {
+                if object.objectTypeID == "2"{
+                    self.atmList.append(object)
+                }
+            }
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        
+            //print(self.atmList)
+      }
     }
     
 
@@ -25,12 +43,15 @@ class BranchesViewController: UIViewController {
 }
 extension BranchesViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return atmList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "atm_cell", for: indexPath) as! ATMCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "BranchesCell", for: indexPath) as! BranchesCell
+        let atm = atmList[indexPath.row]
+        cell.atmNameLabel.text = atm.nameEn
+        cell.adressLabel.text = atm.addressEn
         
         return cell
     }
